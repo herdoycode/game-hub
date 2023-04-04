@@ -7,6 +7,8 @@ import Typography from "@mui/material/Typography";
 
 import { Game } from "../hooks/useGames";
 import PlatformIconList from "./PlatformIconList";
+import CriticScore from "./CriticScore";
+import getOptimizeImg from "../services/ima-url";
 
 interface Props {
   game: Game;
@@ -18,8 +20,8 @@ const GameCard = ({ game }: Props) => {
       <Card sx={{ borderRadius: "10px" }}>
         <CardMedia
           component="img"
-          alt="green iguana"
-          image={game.background_image}
+          alt="Cart thumbnail"
+          image={getOptimizeImg(game.background_image)}
         />
 
         <CardActions>
@@ -35,21 +37,7 @@ const GameCard = ({ game }: Props) => {
             <PlatformIconList
               platforms={game.parent_platforms.map((p) => p.platform)}
             />
-            <Box
-              sx={{
-                borderRadius: "20px",
-                padding: "0px 15px",
-                width: "12px",
-                fontSize: "12px",
-                border: "1px solid green",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                background: "rgba(0, 109, 0, 0.1)",
-              }}
-            >
-              {game.metacritic}
-            </Box>
+            <CriticScore score={game.metacritic} />
           </Box>
         </CardActions>
         <CardContent>
