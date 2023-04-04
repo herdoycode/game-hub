@@ -1,10 +1,10 @@
 import { Grid, Typography } from "@mui/material";
-import { useGames } from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
+import { useGames } from "../hooks/useGames";
 
 const Games = () => {
-  const { error, games, isLoading } = useGames();
+  const { data, error, isLoading } = useGames();
   return (
     <>
       {error && (
@@ -17,7 +17,7 @@ const Games = () => {
           <GameCardSkeleton />
         ) : (
           <>
-            {games.map((game) => (
+            {data.map((game) => (
               <Grid item key={game.id} xs={12} sm={6} md={4} lg={3}>
                 <GameCard game={game} />
               </Grid>

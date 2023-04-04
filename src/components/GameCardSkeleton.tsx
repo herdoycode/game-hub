@@ -5,12 +5,12 @@ import CardContent from "@mui/material/CardContent";
 import Skeleton from "@mui/material/Skeleton";
 
 export default function GameCardSkeleton() {
-  const length = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3];
+  const length = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   return (
     <React.Fragment>
       <Grid container>
-        {length.map((i, l) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} padding={1} key={i}>
+        {length.map((l) => (
+          <Grid item xs={12} sm={6} md={4} lg={3} padding={1} key={l}>
             <Card sx={{ width: "100%", borderRadius: 2 }}>
               <Skeleton
                 sx={{ height: 170, width: "100%" }}

@@ -22,23 +22,59 @@ const PlatformIconList = ({ platforms }: Props) => {
       {platforms.map((platform) => {
         switch (platform.slug) {
           case "pc":
-            return <FaWindows style={{ fontSize: "18px" }} color="gray" />;
+            return (
+              <FaWindows key={12} style={{ fontSize: "18px" }} color="gray" />
+            );
           case "playstation":
-            return <FaPlaystation style={{ fontSize: "18px" }} color="gray" />;
+            return (
+              <FaPlaystation
+                key={23}
+                style={{ fontSize: "18px" }}
+                color="gray"
+              />
+            );
           case "xbox":
-            return <FaXbox style={{ fontSize: "18px" }} color="gray" />;
+            return <FaXbox key={3} style={{ fontSize: "18px" }} color="gray" />;
           case "nintendo":
-            return <SiNintendo style={{ fontSize: "18px" }} color="gray" />;
+            return (
+              <SiNintendo key={775} style={{ fontSize: "18px" }} color="gray" />
+            );
           case "mac":
-            return <FaApple style={{ fontSize: "18px" }} color="gray" />;
+            return (
+              <FaApple key={903} style={{ fontSize: "18px" }} color="gray" />
+            );
           case "ios":
-            return <MdPhoneIphone style={{ fontSize: "18px" }} color="gray" />;
+            return (
+              <MdPhoneIphone
+                key={3574}
+                style={{ fontSize: "18px" }}
+                color="gray"
+              />
+            );
           case "web":
-            return <BsGlobe style={{ fontSize: "18px" }} color="gray" />;
+            return (
+              <BsGlobe
+                key={Date.now()}
+                style={{ fontSize: "18px" }}
+                color="gray"
+              />
+            );
           case "linux":
-            return <FaLinux style={{ fontSize: "18px" }} color="gray" />;
+            return (
+              <FaLinux
+                key={Date.now() | 34}
+                style={{ fontSize: "18px" }}
+                color="gray"
+              />
+            );
           case "android":
-            return <FaAndroid style={{ fontSize: "18px" }} color="gray" />;
+            return (
+              <FaAndroid
+                key={Date.now() | 994}
+                style={{ fontSize: "18px" }}
+                color="gray"
+              />
+            );
         }
       })}
     </Box>
