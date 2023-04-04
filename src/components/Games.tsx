@@ -2,9 +2,14 @@ import { Grid, Typography } from "@mui/material";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import { useGames } from "../hooks/useGames";
+import { Genre } from "../hooks/useGenres";
 
-const Games = () => {
-  const { data, error, isLoading } = useGames();
+interface Props {
+  selectedGenre: Genre | null;
+}
+
+const Games = ({ selectedGenre }: Props) => {
+  const { data, error, isLoading } = useGames(selectedGenre);
   return (
     <>
       {error && (

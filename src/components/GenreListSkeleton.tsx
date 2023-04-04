@@ -25,6 +25,7 @@ const GenreSkeleton = () => {
     <Box component="div" paddingX={2}>
       {lists.map((l) => (
         <Box
+          key={l}
           component="div"
           sx={{ display: "flex", alignItems: "center", gap: "10px" }}
         >

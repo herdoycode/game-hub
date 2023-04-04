@@ -12,11 +12,11 @@ const CriticScore = ({ score }: Props) => {
         padding: "2px 15px",
         width: "12px",
         fontSize: "12px",
-        border: "1px solid #6dc849",
+        border: "1px solid green",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        color: "#6dc849",
+        color: "green",
         background: "rgba(109,200,73,.1)",
       }}
     >

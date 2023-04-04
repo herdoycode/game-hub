@@ -12,6 +12,7 @@ const Navbar = () => {
         justifyContent: "space-between",
       }}
       paddingX={2}
+      marginBottom={2}
     >
       <Box component="img" src={logo} width={60} />
       <ThemeSwitch />

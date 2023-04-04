@@ -1,5 +1,5 @@
 import { CircularProgress, Stack } from "@mui/material";
-import { useGenres } from "../hooks/useGenres";
+import { Genre, useGenres } from "../hooks/useGenres";
 import {
   List,
   ListItem,
@@ -8,9 +8,13 @@ import {
   ListItemText,
 } from "@mui/material";
 import getOptimizeImg from "../services/ima-url";
-import GenreSkeleton from "./GenreSkeleton";
+import GenreSkeleton from "./GenreListSkeleton";
 
-const GenreList = () => {
+interface Props {
+  onSelecteGenre: (genre: Genre) => void;
+}
+
+const GenreList = ({ onSelecteGenre }: Props) => {
   const { data, isLoading } = useGenres();
   return (
     <>
@@ -22,11 +26,14 @@ const GenreList = () => {
             width: "100%",
             maxWidth: 360,
             bgcolor: "background.paper",
-            cursor: "pointer",
           }}
         >
           {data.map((genre) => (
-            <ListItem key={genre.id} sx={{ margin: "-5px 0px" }}>
+            <ListItem
+              key={genre.id}
+              sx={{ margin: "-5px 0px", cursor: "pointer" }}
+              onClick={() => onSelecteGenre(genre)}
+            >
               <ListItemAvatar>
                 <Box
                   component="img"
