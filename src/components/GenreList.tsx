@@ -12,9 +12,10 @@ import GenreSkeleton from "./GenreListSkeleton";
 
 interface Props {
   onSelecteGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const GenreList = ({ onSelecteGenre }: Props) => {
+const GenreList = ({ onSelecteGenre, selectedGenre }: Props) => {
   const { data, isLoading } = useGenres();
   return (
     <>
@@ -44,7 +45,14 @@ const GenreList = ({ onSelecteGenre }: Props) => {
                   sx={{ objectFit: "cover" }}
                 ></Box>
               </ListItemAvatar>
-              <ListItemText primary={genre.name} />
+              <ListItemText
+                primary={genre.name}
+                sx={{
+                  color: `${
+                    selectedGenre?.name === genre.name ? "darkgray" : ""
+                  }`,
+                }}
+              />
             </ListItem>
           ))}
         </List>
