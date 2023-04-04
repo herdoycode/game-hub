@@ -7,9 +7,13 @@ const App = () => {
   return (
     <>
       <Navbar />
-
       <Grid container>
-        <Grid item md={3} display={{ sm: "none", xs: "none", md: "block" }}>
+        <Grid
+          item
+          md={3}
+          display={{ sm: "none", xs: "none", md: "block" }}
+          paddingX={2}
+        >
           <GenreList />
         </Grid>
         <Grid item xs={12} sm={12} md={9}>
