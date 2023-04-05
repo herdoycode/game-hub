@@ -1,6 +1,7 @@
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import logo from "../assets/logo.webp";
 import ThemeSwitch from "./ThemeSwitch";
+import SearchBox from "./SearchBox";
 
 const Navbar = () => {
   return (
@@ -15,6 +16,11 @@ const Navbar = () => {
       marginBottom={2}
     >
       <Box component="img" src={logo} width={60} />
+      <Grid container justifyContent="center">
+        <Grid item xs={10} sm={10} md={8}>
+          <SearchBox />
+        </Grid>
+      </Grid>
       <ThemeSwitch />
     </Box>
   );
