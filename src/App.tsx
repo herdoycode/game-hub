@@ -1,15 +1,17 @@
 import { useState } from "react";
-import { Grid } from "@mui/material";
+import { Grid, Box } from "@mui/material";
 import Navbar from "./components/Navbar";
 import Games from "./components/Games";
 import GenreList from "./components/GenreList";
 import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useGames";
+import SortSelector from "./components/SortSelector";
 
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
+  sortOrder: string;
 }
 
 const App = () => {
@@ -32,12 +34,23 @@ const App = () => {
           />
         </Grid>
         <Grid item xs={12} sm={12} md={9} lg={10}>
-          <PlatformSelector
-            selectedPlatform={GameQuery.platform}
-            onSelectePlatform={(platform) =>
-              setGameQuery({ ...GameQuery, platform })
-            }
-          />
+          <Box
+            component="div"
+            sx={{ display: "flex", width: "100%" }}
+            marginBottom={5}
+          >
+            <PlatformSelector
+              selectedPlatform={GameQuery.platform}
+              onSelectePlatform={(platform) =>
+                setGameQuery({ ...GameQuery, platform })
+              }
+            />
+            <SortSelector
+              onSelectSortOrder={(sortOrder) =>
+                setGameQuery({ ...GameQuery, sortOrder })
+              }
+            />
+          </Box>
           <Games gameQuery={GameQuery} />
         </Grid>
       </Grid>

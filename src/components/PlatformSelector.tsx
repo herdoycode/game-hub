@@ -15,11 +15,9 @@ const PlatformSelector = ({ onSelectePlatform, selectedPlatform }: Props) => {
   const { data } = usePlatforms();
 
   return (
-    <Box sx={{ maxWidth: 250 }}>
+    <Box component="div" sx={{ minWidth: 180 }} marginRight={2}>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">
-          {selectedPlatform?.name || "Platforms"}
-        </InputLabel>
+        <InputLabel id="demo-simple-select-label">Platforms</InputLabel>
         <Select label="Platforms" defaultValue="">
           {data.map((platform) => (
             <MenuItem
