@@ -1,26 +1,7 @@
-import { ListItem, List, Box, ListItemAvatar, Skeleton } from "@mui/material";
+import { Box, Skeleton } from "@mui/material";
 
 const GenreSkeleton = () => {
-  const lists = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    12,
-    13,
-    14,
-    15,
-    "a",
-    "b",
-    "c",
-    "d",
-  ];
+  const lists = Array.from(Array(16).keys());
   return (
     <Box component="div" paddingX={2}>
       {lists.map((l) => (

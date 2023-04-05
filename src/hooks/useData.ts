@@ -9,8 +9,8 @@ interface Response<T> {
 
 export const useData = <T>(
   endPoint: string,
-  deps: any[],
-  requestConfig?: AxiosRequestConfig
+  requestConfig?: AxiosRequestConfig,
+  deps?: any[]
 ) => {
   const [data, setData] = useState<T[]>([]);
   const [error, setError] = useState("");

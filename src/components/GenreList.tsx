@@ -1,4 +1,3 @@
-import { CircularProgress, Stack } from "@mui/material";
 import { Genre, useGenres } from "../hooks/useGenres";
 import {
   List,

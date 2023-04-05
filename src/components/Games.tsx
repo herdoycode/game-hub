@@ -1,16 +1,15 @@
 import { Grid, Typography } from "@mui/material";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
-import { Platform, useGames } from "../hooks/useGames";
-import { Genre } from "../hooks/useGenres";
+import { useGames } from "../hooks/useGames";
+import { GameQuery } from "../App";
 
 interface Props {
-  selectedGenre: Genre | null;
-  selectedPlatform: Platform | null;
+  gameQuery: GameQuery;
 }
 
-const Games = ({ selectedGenre, selectedPlatform }: Props) => {
-  const { data, error, isLoading } = useGames(selectedGenre, selectedPlatform);
+const Games = ({ gameQuery }: Props) => {
+  const { data, error, isLoading } = useGames(gameQuery);
   return (
     <>
       {error && (

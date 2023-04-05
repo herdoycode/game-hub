@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import Skeleton from "@mui/material/Skeleton";
 
 export default function GameCardSkeleton() {
-  const length = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const length = Array.from(Array(12).keys());
   return (
     <React.Fragment>
       <Grid container>
