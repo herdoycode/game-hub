@@ -20,7 +20,7 @@ const CriticScore = ({ score }: Props) => {
         background: "rgba(109,200,73,.1)",
       }}
     >
-      {score}
+      {score ? score : 0}
     </Box>
   );
 };
