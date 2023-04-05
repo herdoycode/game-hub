@@ -4,30 +4,35 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { Platform } from "../hooks/useGames";
 import { usePlatforms } from "../hooks/usePlatforms";
 
-const PlatformSelector = () => {
-  const { data } = usePlatforms();
-  const [age, setAge] = React.useState("");
+interface Props {
+  onSelectePlatform: (platform: Platform) => void;
+  selectedPlatform: Platform | null;
+}
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
-  };
+const PlatformSelector = ({ onSelectePlatform, selectedPlatform }: Props) => {
+  const { data } = usePlatforms();
 
   return (
-    <Box sx={{ maxWidth: 200 }} padding={1} marginBottom={1}>
+    <Box sx={{ maxWidth: 250 }}>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label"> Platforms </InputLabel>
+        <InputLabel id="demo-simple-select-label">
+          {selectedPlatform?.name || "Platforms"}
+        </InputLabel>
         <Select
           labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={age}
           label="Platforms"
-          onChange={handleChange}
+          value={selectedPlatform?.name}
         >
-          {data.map((item) => (
-            <MenuItem key={item.id} value={10}>
-              {item.name}
+          {data.map((platform) => (
+            <MenuItem
+              key={platform.id}
+              onClick={() => onSelectePlatform(platform)}
+              value={platform.id}
+            >
+              {platform.name}
             </MenuItem>
           ))}
         </Select>
