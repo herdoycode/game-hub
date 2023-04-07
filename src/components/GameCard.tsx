@@ -9,6 +9,7 @@ import { Game } from "../hooks/useGames";
 import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getOptimizeImg from "../services/ima-url";
+import Emoji from "./Emoji";
 
 interface Props {
   game: Game;
@@ -49,6 +50,7 @@ const GameCard = ({ game }: Props) => {
           >
             {game.name}
           </Typography>
+          <Emoji rating={game.rating_top} />
         </CardContent>
       </Card>
     </Box>

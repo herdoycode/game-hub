@@ -1,4 +1,4 @@
-import imagePlaceholder from "../assets/placeholder.png";
+import imagePlaceholder from "../assets/placeholder.webp";
 const getOptimizeImg = (url: string) => {
   if (!url) return imagePlaceholder;
   const target = "media/";
