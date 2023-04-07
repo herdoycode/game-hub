@@ -5,6 +5,7 @@ import {
   ListItemAvatar,
   Box,
   ListItemText,
+  Typography,
 } from "@mui/material";
 import getOptimizeImg from "../services/ima-url";
 import GenreSkeleton from "./GenreListSkeleton";
@@ -18,6 +19,10 @@ const GenreList = ({ onSelecteGenre, selectedGenre }: Props) => {
   const { data, isLoading } = useGenres();
   return (
     <>
+      <Typography variant="h4" marginLeft={2}>
+        {" "}
+        Genres{" "}
+      </Typography>
       {isLoading ? (
         <GenreSkeleton />
       ) : (

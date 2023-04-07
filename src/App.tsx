@@ -7,6 +7,7 @@ import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
+import GameHeading from "./components/GameHeading";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -37,6 +38,9 @@ const App = () => {
           />
         </Grid>
         <Grid item xs={12} sm={12} md={9} lg={10}>
+          <Box component="div" marginBottom={2}>
+            <GameHeading gameQuery={GameQuery} />
+          </Box>
           <Box
             component="div"
             sx={{ display: "flex", width: "100%" }}
