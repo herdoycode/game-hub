@@ -14,7 +14,7 @@ const Games = ({ gameQuery }: Props) => {
     <>
       {error && (
         <Typography variant="caption" fontSize={16} color="red">
-          {error}
+          {error.message}
         </Typography>
       )}
       <Grid container>
@@ -22,7 +22,7 @@ const Games = ({ gameQuery }: Props) => {
           <GameCardSkeleton />
         ) : (
           <>
-            {data.map((game) => (
+            {data?.results.map((game) => (
               <Grid item key={game.id} xs={12} sm={6} md={4} lg={3}>
                 <GameCard game={game} />
               </Grid>

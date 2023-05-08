@@ -19,7 +19,7 @@ const PlatformSelector = ({ onSelectePlatform, selectedPlatform }: Props) => {
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Platforms</InputLabel>
         <Select label="Platforms" defaultValue="">
-          {data.map((platform) => (
+          {data?.results.map((platform) => (
             <MenuItem
               key={platform.id}
               onClick={() => onSelectePlatform(platform)}

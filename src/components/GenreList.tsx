@@ -33,7 +33,7 @@ const GenreList = ({ onSelecteGenre, selectedGenre }: Props) => {
             bgcolor: "background.paper",
           }}
         >
-          {data.map((genre) => (
+          {data?.results.map((genre) => (
             <ListItem
               key={genre.id}
               sx={{ margin: "-5px 0px", cursor: "pointer" }}
