@@ -2,6 +2,7 @@ import axios from "axios";
 
 export interface Response<T> {
   id: number;
+  next: string | null;
   results: T[];
 }
 
