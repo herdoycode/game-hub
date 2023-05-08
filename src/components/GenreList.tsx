@@ -12,10 +12,10 @@ import GenreSkeleton from "./GenreListSkeleton";
 
 interface Props {
   onSelecteGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
-const GenreList = ({ onSelecteGenre, selectedGenre }: Props) => {
+const GenreList = ({ onSelecteGenre, selectedGenreId }: Props) => {
   const { data, isLoading } = useGenres();
   return (
     <>
@@ -52,9 +52,7 @@ const GenreList = ({ onSelecteGenre, selectedGenre }: Props) => {
               <ListItemText
                 primary={genre.name}
                 sx={{
-                  color: `${
-                    selectedGenre?.name === genre.name ? "darkgray" : ""
-                  }`,
+                  color: `${selectedGenreId === genre.id ? "darkgray" : ""}`,
                 }}
               />
             </ListItem>

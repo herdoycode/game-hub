@@ -8,16 +8,22 @@ import { usePlatforms } from "../hooks/usePlatforms";
 
 interface Props {
   onSelectePlatform: (platform: Platform) => void;
-  selectedPlatform: Platform | null;
+  selectedPlatformId?: number;
 }
 
-const PlatformSelector = ({ onSelectePlatform, selectedPlatform }: Props) => {
+const PlatformSelector = ({ onSelectePlatform, selectedPlatformId }: Props) => {
   const { data } = usePlatforms();
+
+  const selectedPlatform = data?.results.find(
+    (p) => p.id === selectedPlatformId
+  );
 
   return (
     <Box component="div" sx={{ minWidth: 180 }} marginRight={2}>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Platforms</InputLabel>
+        <InputLabel id="demo-simple-select-label">
+          {selectedPlatform?.name || "Platform"}
+        </InputLabel>
         <Select label="Platforms" defaultValue="">
           {data?.results.map((platform) => (
             <MenuItem
