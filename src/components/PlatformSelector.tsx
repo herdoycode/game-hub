@@ -5,6 +5,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { Platform } from "../hooks/useGames";
 import { usePlatforms } from "../hooks/usePlatforms";
+import usePlatform from "./../hooks/usePlatform";
 
 interface Props {
   onSelectePlatform: (platform: Platform) => void;
@@ -13,11 +14,7 @@ interface Props {
 
 const PlatformSelector = ({ onSelectePlatform, selectedPlatformId }: Props) => {
   const { data } = usePlatforms();
-
-  const selectedPlatform = data?.results.find(
-    (p) => p.id === selectedPlatformId
-  );
-
+  const selectedPlatform = usePlatform(selectedPlatformId);
   return (
     <Box component="div" sx={{ minWidth: 180 }} marginRight={2}>
       <FormControl fullWidth>
