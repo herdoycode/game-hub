@@ -17,6 +17,7 @@ const Navbar = ({ onSearch }: Props) => {
         justifyContent: "space-between",
       }}
       paddingX={2}
+      paddingY={2}
       marginBottom={2}
     >
       <Box component="img" src={logo} width={60} />
