@@ -1,18 +1,16 @@
 import { Box, Paper } from "@mui/material";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useState } from "react";
+import useGameQueryStore from "../store";
 
-interface Props {
-  onSearch: (searchText: string) => void;
-}
-
-const SearchBox = ({ onSearch }: Props) => {
+const SearchBox = () => {
   const [text, setText] = useState<string>("");
+  const setSearchText = useGameQueryStore((s) => s.setSearchText);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    onSearch(text);
+    setSearchText(text);
   };
 
   return (

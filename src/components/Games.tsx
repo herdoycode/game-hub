@@ -1,18 +1,12 @@
+import { Grid, Typography } from "@mui/material";
 import React from "react";
-import { Grid, Typography, Button, CircularProgress } from "@mui/material";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { useGames } from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
-import { useGames } from "../hooks/useGames";
-import { GameQuery } from "../App";
-import InfiniteScroll from "react-infinite-scroll-component";
 
-interface Props {
-  gameQuery: GameQuery;
-}
-
-const Games = ({ gameQuery }: Props) => {
-  const { data, error, isLoading, fetchNextPage, hasNextPage } =
-    useGames(gameQuery);
+const Games = () => {
+  const { data, error, isLoading, fetchNextPage, hasNextPage } = useGames();
 
   const fetchGamesCount =
     data?.pages.reduce((acc, page) => acc + page.results.length, 0) || 0;

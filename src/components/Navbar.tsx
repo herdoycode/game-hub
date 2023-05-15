@@ -3,11 +3,7 @@ import logo from "../assets/logo.webp";
 import ThemeSwitch from "./ThemeSwitch";
 import SearchBox from "./SearchBox";
 
-interface Props {
-  onSearch: (searchText: string) => void;
-}
-
-const Navbar = ({ onSearch }: Props) => {
+const Navbar = () => {
   return (
     <Box
       component="div"
@@ -23,7 +19,7 @@ const Navbar = ({ onSearch }: Props) => {
       <Box component="img" src={logo} width={60} />
       <Grid container justifyContent="center">
         <Grid item xs={10} sm={10} md={8}>
-          <SearchBox onSearch={onSearch} />
+          <SearchBox />
         </Grid>
       </Grid>
       <ThemeSwitch />

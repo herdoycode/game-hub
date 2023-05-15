@@ -1,21 +1,19 @@
-import { Genre, useGenres } from "../hooks/useGenres";
 import {
+  Box,
   List,
   ListItem,
   ListItemAvatar,
-  Box,
   ListItemText,
   Typography,
 } from "@mui/material";
+import { useGenres } from "../hooks/useGenres";
 import getOptimizeImg from "../services/ima-url";
+import useGameQueryStore from "../store";
 import GenreSkeleton from "./GenreListSkeleton";
 
-interface Props {
-  onSelecteGenre: (genre: Genre) => void;
-  selectedGenreId?: number;
-}
-
-const GenreList = ({ onSelecteGenre, selectedGenreId }: Props) => {
+const GenreList = () => {
+  const setGenreId = useGameQueryStore((s) => s.setGenreId);
+  const genreId = useGameQueryStore((s) => s.gameQuery.genreId);
   const { data, isLoading } = useGenres();
   return (
     <>
@@ -37,7 +35,7 @@ const GenreList = ({ onSelecteGenre, selectedGenreId }: Props) => {
             <ListItem
               key={genre.id}
               sx={{ margin: "-5px 0px", cursor: "pointer" }}
-              onClick={() => onSelecteGenre(genre)}
+              onClick={() => setGenreId(genre.id)}
             >
               <ListItemAvatar>
                 <Box
@@ -52,7 +50,7 @@ const GenreList = ({ onSelecteGenre, selectedGenreId }: Props) => {
               <ListItemText
                 primary={genre.name}
                 sx={{
-                  color: `${selectedGenreId === genre.id ? "darkgray" : ""}`,
+                  color: `${genreId === genre.id ? "darkgray" : ""}`,
                 }}
               />
             </ListItem>

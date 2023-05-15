@@ -1,15 +1,12 @@
-import * as React from "react";
 import Box from "@mui/material/Box";
+import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import useGameQueryStore from "../store";
 
-interface Props {
-  onSelectSortOrder: (sortOrder: string) => void;
-}
-
-const SortSelector = ({ onSelectSortOrder }: Props) => {
+const SortSelector = () => {
+  const setSortOrder = useGameQueryStore((s) => s.setSortOrder);
   const sortOrders = [
     { value: "", label: "Relevance" },
     { value: "-added", label: "Date added" },
@@ -33,7 +30,7 @@ const SortSelector = ({ onSelectSortOrder }: Props) => {
             <MenuItem
               key={sortOrder.label}
               value={sortOrder.label}
-              onClick={() => onSelectSortOrder(sortOrder.value)}
+              onClick={() => setSortOrder(sortOrder.value)}
             >
               {sortOrder.label}
             </MenuItem>
