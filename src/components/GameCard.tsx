@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Card from "@mui/material/Card";
 import { Box } from "@mui/material";
 import CardActions from "@mui/material/CardActions";
@@ -41,14 +42,19 @@ const GameCard = ({ game }: Props) => {
           </Box>
         </CardActions>
         <CardContent>
-          <Typography
-            gutterBottom
-            variant="h5"
-            component="div"
-            sx={{ fontWeight: "700" }}
+          <Link
+            to={`/games/${game.slug}`}
+            style={{ textDecoration: "none", color: "inherit" }}
           >
-            {game.name}
-          </Typography>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              sx={{ fontWeight: "700" }}
+            >
+              {game.name}
+            </Typography>
+          </Link>
           <Emoji rating={game.rating_top} />
         </CardContent>
       </Card>

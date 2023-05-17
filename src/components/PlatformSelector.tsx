@@ -8,21 +8,28 @@ import useGameQueryStore from "../store";
 import usePlatform from "./../hooks/usePlatform";
 
 const PlatformSelector = () => {
-  const selectedPlatformId = useGameQueryStore((s) => s.gameQuery.platformId);
-  const setPlatformId = useGameQueryStore((s) => s.setPlatformId);
-
   const { data } = usePlatforms();
+  const setPlatformId = useGameQueryStore((s) => s.setPlatformId);
+  const selectedPlatformId = useGameQueryStore((s) => s.gameQuery.platformId);
   const selectedPlatform = usePlatform(selectedPlatformId);
+
   return (
-    <Box component="div" sx={{ minWidth: 180 }} marginRight={2}>
+    <Box sx={{ minWidth: 190 }} mr={2}>
       <FormControl fullWidth>
-        <InputLabel>{selectedPlatform?.name || "Platforms"}</InputLabel>
+        <InputLabel id="demo-simple-select-label">
+          {selectedPlatform?.name || "Platform"}
+        </InputLabel>
         <Select
-          value={selectedPlatform?.id}
-          label={selectedPlatform?.name || "Platforms"}
+          id="demo-simple-select"
+          label={selectedPlatform?.name || "Platform"}
+          defaultValue=""
         >
-          {data?.results.map((p) => (
-            <MenuItem onClick={() => setPlatformId(p.id)} value={p.id}>
+          {data?.results.map((p, i) => (
+            <MenuItem
+              key={i}
+              value={p.name}
+              onClick={() => setPlatformId(p.id)}
+            >
               {p.name}
             </MenuItem>
           ))}
