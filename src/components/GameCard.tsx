@@ -5,11 +5,11 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Game } from "../entitis/Game";
 import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getOptimizeImg from "../services/ima-url";
 import Emoji from "./Emoji";
+import Game from "../entities/Game";
 
 interface Props {
   game: Game;

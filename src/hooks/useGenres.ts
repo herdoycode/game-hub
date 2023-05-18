@@ -1,11 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import apiClient, { Response } from "../services/api-client";
-import Genre from "../entitis/Genre";
+import APIClient from "../services/api-client";
+import Genre from "../entities/Genre";
 
-export const useGenres = () =>
-  useQuery<Response<Genre>, Error>({
+const apiClient = new APIClient<Genre>("/genres");
+
+const useGenres = () =>
+  useQuery({
     queryKey: ["genres"],
-    queryFn: () =>
-      apiClient.get<Response<Genre>>("/genres").then((res) => res.data),
+    queryFn: apiClient.getAll,
     staleTime: 24 * 60 * 60 * 1000,
   });
+
+export default useGenres;

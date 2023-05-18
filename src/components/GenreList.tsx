@@ -6,10 +6,10 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
-import { useGenres } from "../hooks/useGenres";
 import getOptimizeImg from "../services/ima-url";
 import useGameQueryStore from "../store";
 import GenreSkeleton from "./GenreListSkeleton";
+import useGenres from "../hooks/useGenres";
 
 const GenreList = () => {
   const setGenreId = useGameQueryStore((s) => s.setGenreId);

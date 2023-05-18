@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-import { Platform } from "../hooks/useGames";
 import {
   FaXbox,
   FaApple,
@@ -11,6 +10,7 @@ import {
 import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
+import Platform from "../entities/Platform";
 
 interface Props {
   platforms: Platform[];

@@ -1,13 +1,13 @@
-import { Platform } from "../hooks/useGames";
-import Genre from "./Genre";
-import Publishers from "./Publishers";
+import Genre from './Genre';
+import Platform from './Platform';
+import Publisher from './Publisher';
 
 export default interface Game {
   id: number;
   name: string;
   slug: string;
   genres: Genre[];
-  publishers: Publishers[];
+  publishers: Publisher[];
   description_raw: string;
   background_image: string;
   parent_platforms: { platform: Platform }[];

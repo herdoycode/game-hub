@@ -1,9 +1,9 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { useGames } from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
+import useGames from "../hooks/useGames";
 
 const Games = () => {
   const { data, error, isLoading, fetchNextPage, hasNextPage } = useGames();

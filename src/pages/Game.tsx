@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom";
-import { Box, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import useGame from "../hooks/useGame";
 import GameAttributes from "../components/GameAttributes";
 import ExpandableText from "../components/ExpandableText";
+import GameTrailer from "../components/GameTrailer";
 const Game = () => {
   const { slug } = useParams();
-  const { data, error, isLoading } = useGame(slug!);
+  const { data, isLoading } = useGame(slug!);
 
   if (isLoading)
     return (
@@ -14,20 +15,29 @@ const Game = () => {
       </Typography>
     );
 
-  if (error) return <Typography component="p"> {error.message} </Typography>;
+  if (!data) return null;
 
   return (
-    <Box p={2}>
+    <Box>
       <Typography
         component="h2"
         variant="h4"
         mb={2}
         sx={{ fontWeight: "bold" }}
       >
-        Geme: {data.name}
+        Geme: {data?.name}
       </Typography>
-      <ExpandableText>{data.description_raw}</ExpandableText>
-      <GameAttributes game={data} />
+      <ExpandableText>{data?.description_raw}</ExpandableText>
+      <Grid container>
+        <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+          <GameAttributes game={data} />
+        </Grid>
+        <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+          <Box my={5}>
+            <GameTrailer gameId={data?.id} />
+          </Box>
+        </Grid>
+      </Grid>
     </Box>
   );
 };

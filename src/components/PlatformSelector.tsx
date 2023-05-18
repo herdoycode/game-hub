@@ -3,9 +3,9 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import { usePlatforms } from "../hooks/usePlatforms";
 import useGameQueryStore from "../store";
 import usePlatform from "./../hooks/usePlatform";
+import usePlatforms from "../hooks/usePlatforms";
 
 const PlatformSelector = () => {
   const { data } = usePlatforms();

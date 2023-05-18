@@ -1,7 +1,7 @@
 import { Grid, Typography } from "@mui/material";
-import Game from "../entitis/Game";
 import CriticScore from "./CriticScore";
 import DefinationItem from "./DefinationItem";
+import Game from "../entities/Game";
 
 interface Props {
   game: Game;

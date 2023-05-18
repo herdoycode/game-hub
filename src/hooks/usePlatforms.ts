@@ -1,13 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import apiClient, { Response } from "../services/api-client";
-import Platform from "../entitis/Platform";
+import APIClient from "../services/api-client";
+import Platform from "../entities/Platform";
 
-export const usePlatforms = () =>
-  useQuery<Response<Platform>, Error>({
+const apiClient = new APIClient<Platform>("/platforms/lists/parents");
+
+const usePlatforms = () =>
+  useQuery({
     queryKey: ["platforms"],
-    queryFn: () =>
-      apiClient
-        .get<Response<Platform>>("/platforms/lists/parents")
-        .then((res) => res.data),
+    queryFn: apiClient.getAll,
     staleTime: 24 * 60 * 60 * 1000,
   });
+
+export default usePlatforms;
