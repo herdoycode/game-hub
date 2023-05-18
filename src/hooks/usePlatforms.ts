@@ -1,11 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import apiClient, { Response } from "../services/api-client";
-
-export interface Platform {
-  id: number;
-  name: string;
-  slug: string;
-}
+import Platform from "../entitis/Platform";
 
 export const usePlatforms = () =>
   useQuery<Response<Platform>, Error>({

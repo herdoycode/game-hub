@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import apiClient from "../services/api-client";
-import { Game } from "./useGames";
+import Game from "../entitis/Game";
 
 const useGame = (slug: string) =>
   useQuery<Game, Error, Game>({

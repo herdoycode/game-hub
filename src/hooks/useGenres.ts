@@ -1,11 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import apiClient, { Response } from "../services/api-client";
-
-export interface Genre {
-  id: number;
-  name: string;
-  image_background: string;
-}
+import Genre from "../entitis/Genre";
 
 export const useGenres = () =>
   useQuery<Response<Genre>, Error>({
