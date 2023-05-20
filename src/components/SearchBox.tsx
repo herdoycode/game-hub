@@ -3,14 +3,17 @@ import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { FormEvent, useState } from "react";
 import useGameQueryStore from "../store";
+import { useNavigate } from "react-router-dom";
 
 const SearchBox = () => {
+  const navigate = useNavigate();
   const [text, setText] = useState<string>("");
   const setSearchText = useGameQueryStore((s) => s.setSearchText);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setSearchText(text);
+    navigate("/");
   };
 
   return (
