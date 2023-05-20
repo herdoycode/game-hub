@@ -4,6 +4,7 @@ import useGame from "../hooks/useGame";
 import GameAttributes from "../components/GameAttributes";
 import ExpandableText from "../components/ExpandableText";
 import GameTrailer from "../components/GameTrailer";
+import GameScreenshots from "../components/GameScreenshots";
 const Game = () => {
   const { slug } = useParams();
   const { data, isLoading } = useGame(slug!);
@@ -34,7 +35,8 @@ const Game = () => {
         </Grid>
         <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
           <Box my={5}>
-            <GameTrailer gameId={data?.id} />
+            <GameTrailer gameId={data.id} />
+            <GameScreenshots gameId={data.id} />
           </Box>
         </Grid>
       </Grid>
